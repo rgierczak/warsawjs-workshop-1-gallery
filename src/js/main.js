@@ -26,7 +26,7 @@ class Gallery {
         for (let i = 0; i < IMAGES_ARRAY_SIZE; i++) {
             this.images.push({
                 id: i,
-                src: './src/assets/' + (i + 1) + '.jpg'
+                src: './src/assets/photo' + (i + 1) + '.jpg'
             });
         }
     }
