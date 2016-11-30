@@ -73,7 +73,7 @@ class Gallery {
         let $galleryImages = $mainGallery.getElementsByTagName('img');
         
         for (let i = 0; i < $galleryImages.length; i++) {
-            this.addPhotoClickListener($galleryImages[i], this.photoClickHandler.bind(this));
+            addPhotoClickListener($galleryImages[i], this.photoClickHandler.bind(this));
         }
     }
     
