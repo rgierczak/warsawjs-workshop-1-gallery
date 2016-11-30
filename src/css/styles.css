@@ -8,12 +8,12 @@ body {
     height: 74px;
 }
 
-.active-picture-wrapper {
+.current-photo-wrapper {
     width: auto;
     height: auto;
 }
 
-.active-picture-wrapper img {
+.current-photo-wrapper img {
     width: 640px;
     height: 380px;
 }

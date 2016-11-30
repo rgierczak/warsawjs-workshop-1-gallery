@@ -58,11 +58,11 @@ class Gallery {
     displayCurrentPhoto() {
         let id = this.currentPhotoId;
         let images = this.images;
-        let $activePicture = document.getElementById("active-picture");
+        let $currentPhoto = document.getElementById("current-photo");
         
         for (let i = 0; i < images.length; i++) {
             if (images[i].id === id) {
-                $activePicture.src = images[i].src;
+                $currentPhoto.src = images[i].src;
             }
         }
     }
