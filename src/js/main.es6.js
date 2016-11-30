@@ -1,11 +1,29 @@
 class Gallery {
     constructor() {
-        console.log('Gallery');
+        this.currentPhotoId = null;
         this.setup();
     }
 
     setup() {
+        this.setCurrentPhotoId();
         Gallery.addDOMContentLoaderListener(this.setupClickListeners.bind(this));
+    }
+
+    setCurrentPhotoId(value) {
+        switch (value){
+            case 'next':
+                if (this.currentPhotoId < 10)
+                this.currentPhotoId += 1;
+                break;
+
+            case 'previous':
+                if (this.currentPhotoId >= 1)
+                this.currentPhotoId -= 1;
+                break;
+
+            default:
+                this.currentPhotoId = 0;
+        }
     }
 
     static addButtonListener($button, callback) {
@@ -22,11 +40,13 @@ class Gallery {
     }
 
     nextButtonHandler() {
-        console.log('next clicked, context: ', this);
+        this.setCurrentPhotoId('next');
+        console.log('next clicked, currentPhotoId: ', this.currentPhotoId);
     }
 
     previousButtonHandler() {
-        console.log('previous clicked, context: ', this);
+        this.setCurrentPhotoId('previous');
+        console.log('previous clicked, currentPhotoId: ', this.currentPhotoId);
     }
 }
 
