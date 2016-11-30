@@ -18,6 +18,15 @@ function setCurrentPhotoSrc(images, id, $currentPhoto) {
     }
 }
 
+function getGalleryPhotos () {
+    let $mainGallery = document.getElementById("main-gallery");
+    return $mainGallery.getElementsByTagName('img');
+}
+
+function isPhotoCurrent(galleryPhotoId, currentPhotoId) {
+    return Number(galleryPhotoId) === currentPhotoId;
+}
+
 const IMAGES_ARRAY_SIZE = 5;
 
 class Gallery {
@@ -69,17 +78,17 @@ class Gallery {
     }
     
     addPhotosListener() {
-        let $mainGallery = document.getElementById("main-gallery");
-        let $galleryImages = $mainGallery.getElementsByTagName('img');
+        let $galleryPhotos = getGalleryPhotos();
         
-        for (let i = 0; i < $galleryImages.length; i++) {
-            addPhotoClickListener($galleryImages[i], this.photoClickHandler.bind(this));
+        for (let i = 0; i < $galleryPhotos.length; i++) {
+            addPhotoClickListener($galleryPhotos[i], this.photoClickHandler.bind(this));
         }
     }
     
     photoClickHandler() {
         this.setCurrentPhotoId(Number(event.srcElement.id));
         this.displayCurrentPhoto();
+        this.setActivePhotoBorder();
     }
     
     displayCurrentPhoto() {
@@ -92,13 +101,22 @@ class Gallery {
     nextButtonHandler() {
         this.setCurrentPhotoId('next');
         this.displayCurrentPhoto();
-        console.log('next clicked, currentPhotoId: ', this.currentPhotoId);
+        this.setActivePhotoBorder();
     }
     
     previousButtonHandler() {
         this.setCurrentPhotoId('previous');
         this.displayCurrentPhoto();
-        console.log('previous clicked, currentPhotoId: ', this.currentPhotoId);
+        this.setActivePhotoBorder();
+    }
+    
+    setActivePhotoBorder() {
+        let $galleryPhotos = getGalleryPhotos();
+    
+        for (let i = 0; i < $galleryPhotos.length; i++) {
+            let $photo = $galleryPhotos[i];
+            $photo.className = isPhotoCurrent($photo.id, this.currentPhotoId) ? 'border-active' : '';
+        }
     }
 }
 

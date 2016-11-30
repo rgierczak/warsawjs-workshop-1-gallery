@@ -6,6 +6,12 @@ body {
 #main-gallery img {
     width: 128px;
     height: 74px;
+    cursor: pointer;
+    border: solid 4px transparent;
+}
+
+#main-gallery img.border-active {
+    border: solid 4px #ff0000;
 }
 
 .current-photo-wrapper {
