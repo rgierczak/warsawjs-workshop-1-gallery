@@ -2,3 +2,18 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.main-gallery img {
+    width: 128px;
+    height: 74px;
+}
+
+.active-picture-wrapper {
+    width: auto;
+    height: auto;
+}
+
+.active-picture-wrapper img {
+    width: 640px;
+    height: 380px;
+}
