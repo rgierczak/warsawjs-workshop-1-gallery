@@ -6,6 +6,18 @@ function addDOMContentLoaderListener(handler) {
     document.addEventListener("DOMContentLoaded", handler);
 }
 
+function addPhotoClickListener($image, handler) {
+    $image.addEventListener("click", handler);
+}
+
+function setCurrentPhotoSrc(images, id, $currentPhoto) {
+    for (let i = 0; i < images.length; i++) {
+        if (images[i].id === id) {
+            $currentPhoto.src = images[i].src;
+        }
+    }
+}
+
 const IMAGES_ARRAY_SIZE = 5;
 
 class Gallery {
@@ -16,7 +28,7 @@ class Gallery {
     }
     
     setup() {
-        this.setCurrentPhotoId();
+        this.setCurrentPhotoId(0);
         this.buildImagesArray();
         this.displayCurrentPhoto();
         this.setupClickListeners();
@@ -26,7 +38,7 @@ class Gallery {
         for (let i = 0; i < IMAGES_ARRAY_SIZE; i++) {
             this.images.push({
                 id: i,
-                src: './src/assets/photo' + (i + 1) + '.jpg'
+                src: './src/assets/photo' + i + '.jpg'
             });
         }
     }
@@ -46,25 +58,35 @@ class Gallery {
                 break;
             
             default:
-                this.currentPhotoId = 0;
+                this.currentPhotoId = value;
         }
     }
     
     setupClickListeners() {
         addButtonListener("nextButton", this.nextButtonHandler.bind(this));
         addButtonListener("previousButton", this.previousButtonHandler.bind(this));
+        this.addPhotosListener();
+    }
+    
+    addPhotosListener() {
+        let $mainGallery = document.getElementById("main-gallery");
+        let $galleryImages = $mainGallery.getElementsByTagName('img');
+        
+        for (let i = 0; i < $galleryImages.length; i++) {
+            this.addPhotoClickListener($galleryImages[i], this.photoClickHandler.bind(this));
+        }
+    }
+    
+    photoClickHandler() {
+        this.setCurrentPhotoId(Number(event.srcElement.id));
+        this.displayCurrentPhoto();
     }
     
     displayCurrentPhoto() {
         let id = this.currentPhotoId;
         let images = this.images;
         let $currentPhoto = document.getElementById("current-photo");
-        
-        for (let i = 0; i < images.length; i++) {
-            if (images[i].id === id) {
-                $currentPhoto.src = images[i].src;
-            }
-        }
+        setCurrentPhotoSrc(images, id, $currentPhoto);
     }
     
     nextButtonHandler() {
