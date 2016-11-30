@@ -72,8 +72,8 @@ class Gallery {
     }
     
     setupClickListeners() {
-        addButtonListener("nextButton", this.nextButtonHandler.bind(this));
-        addButtonListener("previousButton", this.previousButtonHandler.bind(this));
+        addButtonListener("next-button", this.nextButtonHandler.bind(this));
+        addButtonListener("previous-button", this.previousButtonHandler.bind(this));
         this.addPhotosListener();
     }
     
