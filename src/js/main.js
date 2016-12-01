@@ -8,7 +8,7 @@ function setCurrentPhotoSrc(images, id, $currentPhoto) {
 
 function getGalleryPhotos() {
     let $mainGallery = document.getElementById("main-gallery");
-    return $mainGallery.getElementsByTagName('img');
+    return $mainGallery.getElementsByTagName("img");
 }
 
 function isPhotoCurrent(galleryPhotoId, currentPhotoId) {
@@ -63,8 +63,8 @@ class Gallery {
         let $nextButton = document.getElementById("next-button");
         let $previousButton = document.getElementById("previous-button");
         
-        $nextButton.addEventListener("click", () => this.nextButtonHandler());
-        $previousButton.addEventListener("click", () => this.previousButtonHandler());
+        $nextButton.addEventListener("click", () => this.clickHandler("next"));
+        $previousButton.addEventListener("click", () => this.clickHandler("previous"));
         this.addPhotosListener();
     }
     
@@ -72,12 +72,12 @@ class Gallery {
         let $galleryPhotos = getGalleryPhotos();
         
         for (let i = 0; i < $galleryPhotos.length; i++) {
-            $galleryPhotos[i].addEventListener("click", (event) => this.photoClickHandler(event));
+            $galleryPhotos[i].addEventListener("click", (event) => this.clickHandler(Number(event.target.id)));
         }
     }
     
-    photoClickHandler(event) {
-        this.setCurrentPhotoId(Number(event.target.id));
+    clickHandler(value) {
+        this.setCurrentPhotoId(value);
         this.displayCurrentPhoto();
         this.setActivePhotoBorder();
     }
@@ -87,18 +87,6 @@ class Gallery {
         let images = this.images;
         let $currentPhoto = document.getElementById("current-photo");
         setCurrentPhotoSrc(images, id, $currentPhoto);
-    }
-    
-    nextButtonHandler() {
-        this.setCurrentPhotoId('next');
-        this.displayCurrentPhoto();
-        this.setActivePhotoBorder();
-    }
-    
-    previousButtonHandler() {
-        this.setCurrentPhotoId('previous');
-        this.displayCurrentPhoto();
-        this.setActivePhotoBorder();
     }
     
     setActivePhotoBorder() {
