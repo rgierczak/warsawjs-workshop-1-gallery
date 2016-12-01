@@ -25,9 +25,8 @@ const IMAGES_ARRAY_SIZE = 5;
 class Gallery {
     constructor() {
         this.images = [];
-        this.currentPhotoId = null;
+        this.currentPhotoId = 0;
     
-        this.setCurrentPhotoId(0);
         this.buildImagesArray();
         this.displayCurrentPhoto();
         this.setupClickListeners();
@@ -93,8 +92,16 @@ class Gallery {
         let $galleryPhotos = getGalleryPhotos();
     
         $galleryPhotos.forEach(($photo) => {
-            $photo.className = isPhotoCurrent($photo.id, this.currentPhotoId) ? 'border-active' : '';
+            this.updatePhotoClassName($photo);
         });
+    }
+    
+    updatePhotoClassName($photo) {
+        if (isPhotoCurrent($photo.id, this.currentPhotoId)) {
+            $photo.className = 'border-active'
+        } else {
+            $photo.className =  '';
+        }
     }
 }
 
