@@ -98,7 +98,7 @@ class Gallery {
     
     updatePhotoClassName($photo) {
         if (isPhotoCurrent($photo.id, this.currentPhotoId)) {
-            $photo.className = 'border-active'
+            $photo.className = 'border-active';
         } else {
             $photo.className =  '';
         }
