@@ -1,14 +1,19 @@
-function setCurrentPhotoSrc(images, id, $currentPhoto) {
-    for (let i = 0; i < images.length; i++) {
-        if (images[i].id === id) {
-            $currentPhoto.src = images[i].src;
-        }
-    }
-}
-
 function getGalleryPhotos() {
     let $mainGallery = document.getElementById("main-gallery");
     return $mainGallery.getElementsByTagName("img");
+}
+
+function setCurrentPhotoSrc(arrayPhoto) {
+    let $currentPhoto = document.getElementById("current-photo");
+    $currentPhoto.src = arrayPhoto.src;
+}
+
+function findPhotoByCurrentId(images, id) {
+    for (let i = 0; i < images.length; i++) {
+        if (images[i].id === id) {
+            return images[i];
+        }
+    }
 }
 
 function isPhotoCurrent(galleryPhotoId, currentPhotoId) {
@@ -83,10 +88,8 @@ class Gallery {
     }
     
     displayCurrentPhoto() {
-        let id = this.currentPhotoId;
-        let images = this.images;
-        let $currentPhoto = document.getElementById("current-photo");
-        setCurrentPhotoSrc(images, id, $currentPhoto);
+        let currentArrayPhoto = findPhotoByCurrentId(this.images, this.currentPhotoId);
+        setCurrentPhotoSrc(currentArrayPhoto);
     }
     
     setActivePhotoBorder() {
