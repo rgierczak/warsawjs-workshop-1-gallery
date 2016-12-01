@@ -18,7 +18,7 @@ function setCurrentPhotoSrc(images, id, $currentPhoto) {
     }
 }
 
-function getGalleryPhotos () {
+function getGalleryPhotos() {
     let $mainGallery = document.getElementById("main-gallery");
     return $mainGallery.getElementsByTagName('img');
 }
@@ -72,8 +72,8 @@ class Gallery {
     }
     
     setupClickListeners() {
-        addButtonListener("next-button", this.nextButtonHandler.bind(this));
-        addButtonListener("previous-button", this.previousButtonHandler.bind(this));
+        addButtonListener("next-button", () => this.nextButtonHandler());
+        addButtonListener("previous-button", () => this.previousButtonHandler());
         this.addPhotosListener();
     }
     
@@ -81,7 +81,7 @@ class Gallery {
         let $galleryPhotos = getGalleryPhotos();
         
         for (let i = 0; i < $galleryPhotos.length; i++) {
-            addPhotoClickListener($galleryPhotos[i], this.photoClickHandler.bind(this));
+            addPhotoClickListener($galleryPhotos[i], (event) => this.photoClickHandler(event));
         }
     }
     
@@ -112,7 +112,7 @@ class Gallery {
     
     setActivePhotoBorder() {
         let $galleryPhotos = getGalleryPhotos();
-    
+        
         for (let i = 0; i < $galleryPhotos.length; i++) {
             let $photo = $galleryPhotos[i];
             $photo.className = isPhotoCurrent($photo.id, this.currentPhotoId) ? 'border-active' : '';
