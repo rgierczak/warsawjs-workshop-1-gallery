@@ -1,15 +1,3 @@
-function addButtonListener($button, callback) {
-    document.getElementById($button).addEventListener("click", callback);
-}
-
-function addDOMContentLoaderListener(handler) {
-    document.addEventListener("DOMContentLoaded", handler);
-}
-
-function addPhotoClickListener($image, handler) {
-    $image.addEventListener("click", handler);
-}
-
 function setCurrentPhotoSrc(images, id, $currentPhoto) {
     for (let i = 0; i < images.length; i++) {
         if (images[i].id === id) {
@@ -72,8 +60,11 @@ class Gallery {
     }
     
     setupClickListeners() {
-        addButtonListener("next-button", () => this.nextButtonHandler());
-        addButtonListener("previous-button", () => this.previousButtonHandler());
+        let $nextButton = document.getElementById("next-button");
+        let $previousButton = document.getElementById("previous-button");
+        
+        $nextButton.addEventListener("click", () => this.nextButtonHandler());
+        $previousButton.addEventListener("click", () => this.previousButtonHandler());
         this.addPhotosListener();
     }
     
@@ -81,7 +72,7 @@ class Gallery {
         let $galleryPhotos = getGalleryPhotos();
         
         for (let i = 0; i < $galleryPhotos.length; i++) {
-            addPhotoClickListener($galleryPhotos[i], (event) => this.photoClickHandler(event));
+            $galleryPhotos[i].addEventListener("click", (event) => this.photoClickHandler(event));
         }
     }
     
@@ -120,6 +111,6 @@ class Gallery {
     }
 }
 
-addDOMContentLoaderListener(() => {
+document.addEventListener("DOMContentLoaded", function () {
     new Gallery();
 });
