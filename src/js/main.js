@@ -1,6 +1,6 @@
 function getGalleryPhotos() {
-    let $mainGallery = document.getElementById("main-gallery");
-    return $mainGallery.getElementsByTagName("img");
+    let $mainGallery = document.getElementById("main-gallery");    
+    return Array.from($mainGallery.getElementsByTagName("img"));
 }
 
 function setCurrentPhotoSrc(arrayPhoto) {
@@ -73,9 +73,9 @@ class Gallery {
     addPhotosListener() {
         let $galleryPhotos = getGalleryPhotos();
         
-        for (let i = 0; i < $galleryPhotos.length; i++) {
-            $galleryPhotos[i].addEventListener("click", (event) => this.clickHandler(Number(event.target.id)));
-        }
+        $galleryPhotos.forEach(($photo) => {
+            $photo.addEventListener("click", (event) => this.clickHandler(Number(event.target.id)));
+        });
     }
     
     clickHandler(value) {
@@ -91,11 +91,10 @@ class Gallery {
     
     setActivePhotoBorder() {
         let $galleryPhotos = getGalleryPhotos();
-        
-        for (let i = 0; i < $galleryPhotos.length; i++) {
-            let $photo = $galleryPhotos[i];
+    
+        $galleryPhotos.forEach(($photo) => {
             $photo.className = isPhotoCurrent($photo.id, this.currentPhotoId) ? 'border-active' : '';
-        }
+        });
     }
 }
 
