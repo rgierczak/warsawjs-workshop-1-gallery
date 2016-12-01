@@ -26,10 +26,7 @@ class Gallery {
     constructor() {
         this.images = [];
         this.currentPhotoId = null;
-        this.setup();
-    }
     
-    setup() {
         this.setCurrentPhotoId(0);
         this.buildImagesArray();
         this.displayCurrentPhoto();
