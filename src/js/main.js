@@ -1,6 +1,6 @@
 function getGalleryPhotos() {
-    let $mainGallery = document.getElementById("main-gallery");    
-    return Array.from($mainGallery.getElementsByTagName("img"));
+    let $mainGallery = document.getElementById("main-gallery");
+    return $mainGallery.getElementsByTagName("img");
 }
 
 function setCurrentPhotoSrc(arrayPhoto) {
@@ -26,7 +26,7 @@ class Gallery {
     constructor() {
         this.images = [];
         this.currentPhotoId = 0;
-    
+        
         this.buildImagesArray();
         this.displayCurrentPhoto();
         this.setupClickListeners();
@@ -64,16 +64,25 @@ class Gallery {
         let $nextButton = document.getElementById("next-button");
         let $previousButton = document.getElementById("previous-button");
         
-        $nextButton.addEventListener("click", () => this.clickHandler("next"));
-        $previousButton.addEventListener("click", () => this.clickHandler("previous"));
+        $nextButton.addEventListener("click", () => {
+            this.clickHandler("next")
+        });
+        
+        $previousButton.addEventListener("click", () => {
+            this.clickHandler("previous")
+        });
+        
         this.addPhotosListener();
     }
     
     addPhotosListener() {
-        let $galleryPhotos = getGalleryPhotos();
+        let $galleryPhotosHTMLCollection = getGalleryPhotos();
+        let photos = Array.from($galleryPhotosHTMLCollection);
         
-        $galleryPhotos.forEach(($photo) => {
-            $photo.addEventListener("click", (event) => this.clickHandler(Number(event.target.id)));
+        photos.forEach((photo) => {
+            photo.addEventListener("click", (event) => {
+                this.clickHandler(Number(event.target.id));
+            });
         });
     }
     
@@ -89,10 +98,11 @@ class Gallery {
     }
     
     setActivePhotoBorder() {
-        let $galleryPhotos = getGalleryPhotos();
-    
-        $galleryPhotos.forEach(($photo) => {
-            this.updatePhotoClassName($photo);
+        let $galleryPhotosHTMLCollection = getGalleryPhotos();
+        let photos = Array.from($galleryPhotosHTMLCollection);
+        
+        photos.forEach((photo) => {
+            this.updatePhotoClassName(photo);
         });
     }
     
@@ -100,7 +110,7 @@ class Gallery {
         if (isPhotoCurrent($photo.id, this.currentPhotoId)) {
             $photo.className = 'border-active';
         } else {
-            $photo.className =  '';
+            $photo.className = '';
         }
     }
 }
