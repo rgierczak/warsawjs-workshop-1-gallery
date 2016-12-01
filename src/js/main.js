@@ -6,6 +6,27 @@ function addDOMContentLoaderListener(handler) {
     document.addEventListener("DOMContentLoaded", handler);
 }
 
+function addPhotoClickListener($image, handler) {
+    $image.addEventListener("click", handler);
+}
+
+function setCurrentPhotoSrc(images, id, $currentPhoto) {
+    for (let i = 0; i < images.length; i++) {
+        if (images[i].id === id) {
+            $currentPhoto.src = images[i].src;
+        }
+    }
+}
+
+function getGalleryPhotos () {
+    let $mainGallery = document.getElementById("main-gallery");
+    return $mainGallery.getElementsByTagName('img');
+}
+
+function isPhotoCurrent(galleryPhotoId, currentPhotoId) {
+    return Number(galleryPhotoId) === currentPhotoId;
+}
+
 const IMAGES_ARRAY_SIZE = 5;
 
 class Gallery {
@@ -16,7 +37,7 @@ class Gallery {
     }
     
     setup() {
-        this.setCurrentPhotoId();
+        this.setCurrentPhotoId(0);
         this.buildImagesArray();
         this.displayCurrentPhoto();
         this.setupClickListeners();
@@ -26,7 +47,7 @@ class Gallery {
         for (let i = 0; i < IMAGES_ARRAY_SIZE; i++) {
             this.images.push({
                 id: i,
-                src: './src/assets/' + (i + 1) + '.jpg'
+                src: './src/assets/photo' + i + '.jpg'
             });
         }
     }
@@ -46,37 +67,56 @@ class Gallery {
                 break;
             
             default:
-                this.currentPhotoId = 0;
+                this.currentPhotoId = value;
         }
     }
     
     setupClickListeners() {
-        addButtonListener("nextButton", this.nextButtonHandler.bind(this));
-        addButtonListener("previousButton", this.previousButtonHandler.bind(this));
+        addButtonListener("next-button", this.nextButtonHandler.bind(this));
+        addButtonListener("previous-button", this.previousButtonHandler.bind(this));
+        this.addPhotosListener();
+    }
+    
+    addPhotosListener() {
+        let $galleryPhotos = getGalleryPhotos();
+        
+        for (let i = 0; i < $galleryPhotos.length; i++) {
+            addPhotoClickListener($galleryPhotos[i], this.photoClickHandler.bind(this));
+        }
+    }
+    
+    photoClickHandler() {
+        this.setCurrentPhotoId(Number(event.srcElement.id));
+        this.displayCurrentPhoto();
+        this.setActivePhotoBorder();
     }
     
     displayCurrentPhoto() {
         let id = this.currentPhotoId;
         let images = this.images;
-        let $activePicture = document.getElementById("active-picture");
-        
-        for (let i = 0; i < images.length; i++) {
-            if (images[i].id === id) {
-                $activePicture.src = images[i].src;
-            }
-        }
+        let $currentPhoto = document.getElementById("current-photo");
+        setCurrentPhotoSrc(images, id, $currentPhoto);
     }
     
     nextButtonHandler() {
         this.setCurrentPhotoId('next');
         this.displayCurrentPhoto();
-        console.log('next clicked, currentPhotoId: ', this.currentPhotoId);
+        this.setActivePhotoBorder();
     }
     
     previousButtonHandler() {
         this.setCurrentPhotoId('previous');
         this.displayCurrentPhoto();
-        console.log('previous clicked, currentPhotoId: ', this.currentPhotoId);
+        this.setActivePhotoBorder();
+    }
+    
+    setActivePhotoBorder() {
+        let $galleryPhotos = getGalleryPhotos();
+    
+        for (let i = 0; i < $galleryPhotos.length; i++) {
+            let $photo = $galleryPhotos[i];
+            $photo.className = isPhotoCurrent($photo.id, this.currentPhotoId) ? 'border-active' : '';
+        }
     }
 }
 

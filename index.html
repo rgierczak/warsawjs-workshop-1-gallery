@@ -10,18 +10,22 @@
 </head>
 <body>
 
-<div class="main-gallery">
-    <img src="./src/assets/1.jpg">
-    <img src="./src/assets/2.jpg">
-    <img src="./src/assets/3.jpg">
-    <img src="./src/assets/4.jpg">
-    <img src="./src/assets/5.jpg">
+<div id="main-wrapper">
+    <div id="main-gallery">
+        <img id="0" class="border-active" src="src/assets/photo0.jpg">
+        <img id="1" src="src/assets/photo1.jpg">
+        <img id="2" src="src/assets/photo2.jpg">
+        <img id="3" src="src/assets/photo3.jpg">
+        <img id="4" src="src/assets/photo4.jpg">
+    </div>
+
+    <div id="current-photo-wrapper">
+        <a href="#" id="previous-button">Previous</a>
+        <img id="current-photo" src="">
+        <a href="#" id="next-button">Next</a>
+        <div class="clear"></div>
+    </div>
 </div>
 
-<div class="active-picture-wrapper">
-    <a href="#" id="previousButton">Previous</a>
-    <img id="active-picture">
-    <a href="#" id="nextButton">Next</a>
-</div>
 </body>
 </html>
