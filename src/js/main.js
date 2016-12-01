@@ -85,8 +85,8 @@ class Gallery {
         }
     }
     
-    photoClickHandler() {
-        this.setCurrentPhotoId(Number(event.srcElement.id));
+    photoClickHandler(event) {
+        this.setCurrentPhotoId(Number(event.target.id));
         this.displayCurrentPhoto();
         this.setActivePhotoBorder();
     }
