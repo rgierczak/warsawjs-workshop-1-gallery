@@ -65,11 +65,11 @@ class Gallery {
         let $previousButton = document.getElementById("previous-button");
         
         $nextButton.addEventListener("click", () => {
-            this.clickHandler("next")
+            this.clickHandler("next");
         });
         
         $previousButton.addEventListener("click", () => {
-            this.clickHandler("previous")
+            this.clickHandler("previous");
         });
         
         this.addPhotosListener();
