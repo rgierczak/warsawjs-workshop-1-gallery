@@ -36,7 +36,7 @@ class Gallery {
         for (let i = 0; i < IMAGES_ARRAY_SIZE; i++) {
             this.images.push({
                 id: i,
-                src: './src/assets/photo' + i + '.jpg'
+                src: './assets/photo' + i + '.jpg'
             });
         }
     }
