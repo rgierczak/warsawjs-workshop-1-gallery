@@ -1,6 +1,6 @@
 function getGalleryPhotos() {
-    let $mainGallery = document.getElementById("main-gallery");
-    return $mainGallery.getElementsByTagName("img");
+    let $thumbsGallery = document.getElementById("thumbs-gallery");
+    return $thumbsGallery.getElementsByTagName("img");
 }
 
 function setCurrentPhotoSrc(arrayPhoto) {
@@ -64,10 +64,10 @@ class Gallery {
         //1) Pobrać z DOM przyciski: previous-button, next-button.
         let $nextButton = document.getElementById("next-button");
         let $previousButton = document.getElementById("previous-button");
-    
+        
         //2) Dodać nasłuchiwanie na tych przyciskach.
         $nextButton.addEventListener("click", () => {
-    
+            
             //3) Uruchomić funkcję zmieniającą zdjęcie.
             this.clickHandler("next");
         });
@@ -101,7 +101,7 @@ class Gallery {
     clickHandler(value) {
         // 1) Zmienić currentPhotoId.
         this.setCurrentPhotoId(value);
-    
+        
         // 2) Wyświetlić nowe aktualne zdjęcie.
         this.displayCurrentPhoto();
         
@@ -113,7 +113,7 @@ class Gallery {
     displayCurrentPhoto() {
         // 1) Pobrać zdjęcie z tablicy zdjęć na podstawie aktualnego id (currentPhotoId).
         let currentArrayPhoto = findPhotoByCurrentId(this.images, this.currentPhotoId);
-    
+        
         // 2) Wstawić zdjęcie do HTML.
         setCurrentPhotoSrc(currentArrayPhoto);
     }
@@ -121,7 +121,7 @@ class Gallery {
     setActivePhotoBorder() {
         // 1) Pobieramy kolekcję HTML miniaturek zdjęć z DOM.
         let $galleryPhotosHTMLCollection = getGalleryPhotos();
-    
+        
         // 2) Tworzymy tablicę z tej kolekcji HTML.
         let photos = Array.from($galleryPhotosHTMLCollection);
         
