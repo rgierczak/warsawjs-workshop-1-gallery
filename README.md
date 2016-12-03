@@ -105,10 +105,35 @@ miniaturkami)
 * Wyjaśnić instrukcję warunkową `if`,
 * Wyjaśnić różnicę między porównaniem a przypisaniem,
 * Wyjaśnić co to jest `return`
-
 * Stworzyć pomocniczą funkcję `setCurrentPhotoSrc`
 
 **Wyjaśnić**
 
 * Jak pobrać element DOM ? (getElementById)
 * Jak dostać się do właściwości obiektu (po kropeczce)
+
+### &#x1F34E; ETAP 3) - Obsługa kliknięcia przycisków next/prev &#x1F34E;
+
+##### Funkcja `setupClickListeners`
+
+* Stworzyć funkcję `setupClickListeners`, wewnątrz której należy pobrać 
+z DOM przyciski prev/next oraz dodać na nich nasłuchiwanie na kliknięcie.
+* Opowiedzieć, jakie mogą być typy zdarzeń, na które można nasłuchiwać
+(`click`, `mouseover`, `keydown`, itd)
+* Jako funkcje nasłuchującą podajemy `clickHandler` przekazując jej
+jako parametr string z informacją czy kliknięto przycisk `next`,
+czy `previous,
+* Stworzyć funkcję `clickHandler`, która będzie ustawiała `currentPhotoId`,
+oraz wyświetlała następne/poprzednie zdjęcie. Funkcja wyświetlająca (`displayCurrentPhoto`) została już zdefiniowana wcześniej, należy tylko zdefiniować funkcje do ustawiania `currentPhotoId`.
+* W tym celu należy stworzyć funkcję `setCurrentPhotoId`, która w zależności od przyjętego argumentu, albo wpisuje wartość do zmiennej `currentPhotoId`,
+albo ją inkrementuje/dekrementuje.
+
+**Wyjaśnić:**
+- Jak działa `switch` ?
+
+UWAGA: Na tym etapie, pomijamy wywołanie funkcji `this.addPhotosListener();`,
+oraz `this.setActivePhotoBorder()`.
+
+### &#x1F34E; ETAP 4) - Obsługa kliknięcia miniatury &#x1F34E;
+
+### &#x1F34E; ETAP 5) - Dodanie kolorowej ramki na miniaturce, reprezentującej aktywne zdjęcie &#x1F34E;
