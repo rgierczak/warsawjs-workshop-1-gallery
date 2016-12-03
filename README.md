@@ -35,7 +35,7 @@ https://rgierczak.github.io/warsawjs-workshop-gallery/
 
 ### Realizacja zadania - Galeria zdjęć
 
-### <span style="color:orange;">ETAP 1) - Wyświetlenie miniaturek</span>
+### &#x1F34E; ETAP 1) - Wyświetlenie miniaturek &#x1F34E;
 
 #### HTML + CSS
 
@@ -45,7 +45,7 @@ https://rgierczak.github.io/warsawjs-workshop-gallery/
 (wyjaśnienie używanych reguł styli)
 
 
-### <span style="color:orange;">ETAP 2) - Wyświetlenie zdjęcia głównego</span>
+### &#x1F34E; ETAP 2) - Wyświetlenie zdjęcia głównego &#x1F34E;
 
 #### JS
 
