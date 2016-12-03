@@ -122,7 +122,7 @@ z DOM przyciski prev/next oraz dodać na nich nasłuchiwanie na kliknięcie.
 (`click`, `mouseover`, `keydown`, itd)
 * Jako funkcje nasłuchującą podajemy `clickHandler` przekazując jej
 jako parametr string z informacją czy kliknięto przycisk `next`,
-czy `previous,
+czy `previous`,
 * Stworzyć funkcję `clickHandler`, która będzie ustawiała `currentPhotoId`,
 oraz wyświetlała następne/poprzednie zdjęcie. Funkcja wyświetlająca (`displayCurrentPhoto`) została już zdefiniowana wcześniej, należy tylko zdefiniować funkcje do ustawiania `currentPhotoId`.
 * W tym celu należy stworzyć funkcję `setCurrentPhotoId`, która w zależności od przyjętego argumentu, albo wpisuje wartość do zmiennej `currentPhotoId`,
