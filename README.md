@@ -1,5 +1,7 @@
 # warsawjs-workshop-gallery
 
+![](http://warsawjs.com/assets/images/logo/logo-transparent-240x240.png)
+
 ## Etapy szkolenia
 
 ### Przedstawienie projektu
