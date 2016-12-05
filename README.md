@@ -31,9 +31,9 @@ https://rgierczak.github.io/warsawjs-workshop-gallery/
 
 #### JS
 
-* napisać console.log/funkcję z console.log,
-* załączyć plik do HTML,
-* omówić zakładki DevTools pokazując m.in. wyświetlony tekst z funkcji
+* Wyjaśnić console.log,
+* Załączyć plik do HTML,
+* Omówić zakładki DevTools pokazując m.in. wyświetlony tekst z funkcji
 
 ### Realizacja zadania - Galeria zdjęć
 
@@ -45,7 +45,6 @@ https://rgierczak.github.io/warsawjs-workshop-gallery/
 (wyjaśnienie wykorzystywanych znaczników)
 * Ostylować te znaczniki w CSS
 (wyjaśnienie używanych reguł styli)
-
 
 ### &#x1F34E; ETAP 2) - Wyświetlenie zdjęcia głównego &#x1F34E;
 
@@ -59,14 +58,14 @@ aż załaduje się DOM. Służy do tego zdarzenie `DOMContentLoaded`.
 **Wyjaśnić:**
 
 * Co to jest zmienna ?
-a) stworzyć zmienną var i=5 i wyświetlić ją na konsoli
-b) dodać wartości dwóch zmiennych, wynik na konsolę
-c) omówić wbudowane typy danych 
+a) Stworzyć zmienną let i = 5; i wyświetlić ją na konsoli,
+b) Dodać wartości dwóch zmiennych, wynik na konsolę,
+c) Omówić wbudowane typy danych 
 (Array, number, string, Object, Boolean, null, undefined)
 * Co to jest funkcja ?,
-a) stworzyć zmienną lokalną,
-b) omówić parametry funkcji,
-c) stworzyć funkcję dodającą dwie liczby, wynik na konsolę
+a) Stworzyć zmienną lokalną,
+b) Omówić parametry funkcji,
+c) Stworzyć funkcję dodającą dwie liczby, wynik na konsolę
 * Co to jest zdarzenie ?,
 * co to jest nasłuchiwanie na zdarzenie ?,
 * Jak reagować na zdarzenia ?
@@ -75,15 +74,15 @@ c) stworzyć funkcję dodającą dwie liczby, wynik na konsolę
 
 ##### Klasa `Gallery`
 
-* Co to jest klasa ?
-* Co to jest instancja klasy ?
-* Stworzyć klasę Gallery
-* Co to jest konstruktor ?
-* Co to jest właściwość klasy ?
+* Co to jest klasa ?,
+* Co to jest instancja klasy ?,
+* Stworzyć klasę Gallery,
+* Co to jest konstruktor ?,
+* Co to jest właściwość klasy ?,
 * Dodać tablicę `this.images`, oraz `this.currentPhotoId`,
 * Wyjaśnić co to jest `this`,
-* Przenieść funkcję stworzoną w etapie wyżej do klasy
-* Uruchomić tę funkcję w konstruktorze
+* Przenieść funkcję stworzoną w etapie wyżej do klasy,
+* Uruchomić tę funkcję w konstruktorze,
 * Stworzyć instancję klasy Gallery w wywołaniu zwrotnym zdarzenia
 `DOMContentLoaded`.
 
@@ -91,8 +90,8 @@ c) stworzyć funkcję dodającą dwie liczby, wynik na konsolę
 
 * Stworzyć funkcję `buildImagesArray`, która wypełnia tablicę `images`
 obiektami (para właściwości: `id`, `src`)
-* Wyjaśnić co to jest stała oraz jak działają pętle
-* Wyrzucić do konsoli wypełnioną tablicę `this.images`
+* Wyjaśnić co to jest stała oraz jak działają pętle,
+* Wyrzucić do konsoli wypełnioną tablicę `this.images`.
 
 ##### Funkcja `displayCurrentPhoto`
 
@@ -106,29 +105,18 @@ miniaturkami)
 * Dlaczego funkcja `findPhotoByCurrentId` jest zdefiniowana poza klasą ? 
 * Wyjaśnić instrukcję warunkową `if`,
 * Wyjaśnić różnicę między porównaniem a przypisaniem,
-* Wyjaśnić co to jest `return`
-* Stworzyć pomocniczą funkcję `setCurrentPhotoSrc`
-
-**Wyjaśnić**
-
-* Jak pobrać element DOM ? (getElementById)
-* Jak dostać się do właściwości obiektu (po kropeczce)
+* Wyjaśnić co to jest `return`,
+* Stworzyć pomocniczą funkcję `setCurrentPhotoSrc`,
+* Jak pobrać element DOM ? (getElementById),
+* Jak dostać się do właściwości obiektu (po kropeczce).
 
 ### &#x1F34E; ETAP 3) - Obsługa kliknięcia przycisków next/prev &#x1F34E;
 
 ##### Funkcja `setupClickListeners`
 
-* Stworzyć funkcję `setupClickListeners`, wewnątrz której należy pobrać 
-z DOM przyciski prev/next oraz dodać na nich nasłuchiwanie na kliknięcie.
-* Opowiedzieć, jakie mogą być typy zdarzeń, na które można nasłuchiwać
-(`click`, `mouseover`, `keydown`, itd)
-* Jako funkcje nasłuchującą podajemy `clickHandler` przekazując jej
-jako parametr string z informacją czy kliknięto przycisk `next`,
-czy `previous`,
-* Stworzyć funkcję `clickHandler`, która będzie ustawiała `currentPhotoId`,
-oraz wyświetlała następne/poprzednie zdjęcie. Funkcja wyświetlająca (`displayCurrentPhoto`) została już zdefiniowana wcześniej, należy tylko zdefiniować funkcje do ustawiania `currentPhotoId`.
-* W tym celu należy stworzyć funkcję `setCurrentPhotoId`, która w zależności od przyjętego argumentu, albo wpisuje wartość do zmiennej `currentPhotoId`,
-albo ją inkrementuje/dekrementuje.
+* Stworzyć funkcję `setupClickListeners`,
+* Opowiedzieć, jakie mogą być typy zdarzeń, na które można nasłuchiwać,
+* Stworzyć funkcję `clickHandler`.
 
 **Wyjaśnić:**
 - Jak działa `switch` ?
