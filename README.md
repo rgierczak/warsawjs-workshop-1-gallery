@@ -58,14 +58,13 @@ aż załaduje się DOM. Służy do tego zdarzenie `DOMContentLoaded`.
 **Wyjaśnić:**
 
 * Co to jest zmienna ?
-a) Stworzyć zmienną let i = 5; i wyświetlić ją na konsoli,
-b) Dodać wartości dwóch zmiennych, wynik na konsolę,
-c) Omówić wbudowane typy danych 
-(Array, number, string, Object, Boolean, null, undefined)
+1. Stworzyć zmienną let i = 5; i wyświetlić ją na konsoli,
+2. Dodać wartości dwóch zmiennych, wynik na konsolę,
+3. Omówić wbudowane typy danych,
 * Co to jest funkcja ?,
 a) Stworzyć zmienną lokalną,
 b) Omówić parametry funkcji,
-c) Stworzyć funkcję dodającą dwie liczby, wynik na konsolę
+c) Stworzyć funkcję dodającą dwie liczby, wynik na konsolę,
 * Co to jest zdarzenie ?,
 * co to jest nasłuchiwanie na zdarzenie ?,
 * Jak reagować na zdarzenia ?
@@ -83,8 +82,7 @@ c) Stworzyć funkcję dodającą dwie liczby, wynik na konsolę
 * Wyjaśnić co to jest `this`,
 * Przenieść funkcję stworzoną w etapie wyżej do klasy,
 * Uruchomić tę funkcję w konstruktorze,
-* Stworzyć instancję klasy Gallery w wywołaniu zwrotnym zdarzenia
-`DOMContentLoaded`.
+* Stworzyć instancję klasy Gallery w wywołaniu zwrotnym zdarzenia `DOMContentLoaded`.
 
 ##### Funkcja `buildImagesArray`
 
@@ -124,6 +122,6 @@ miniaturkami)
 UWAGA: Na tym etapie, pomijamy wywołanie funkcji `this.addPhotosListener();`,
 oraz `this.setActivePhotoBorder()`.
 
-### &#x1F34E; ETAP 4) - Obsługa kliknięcia miniatury &#x1F34E;
+### &#x1F34E; ETAP 4) - ZADANIE DODATKOWE - Obsługa kliknięcia miniatury &#x1F34E;
 
-### &#x1F34E; ETAP 5) - Dodanie kolorowej ramki na miniaturce, reprezentującej aktywne zdjęcie &#x1F34E;
+### &#x1F34E; ETAP 5) - ZADANIE DODATKOWE - Dodanie kolorowej ramki na miniaturce, reprezentującej aktywne zdjęcie &#x1F34E;
