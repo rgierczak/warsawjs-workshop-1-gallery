@@ -37,7 +37,7 @@ https://rgierczak.github.io/warsawjs-workshop-gallery/
 
 ### Realizacja zadania - Galeria zdjęć
 
-### &#x1F34E; ETAP 1) - Wyświetlenie miniaturek &#x1F34E;
+### ETAP 1) - Wyświetlenie miniaturek
 
 #### HTML + CSS
 
@@ -46,7 +46,7 @@ https://rgierczak.github.io/warsawjs-workshop-gallery/
 * Ostylować te znaczniki w CSS
 (wyjaśnienie używanych reguł styli)
 
-### &#x1F34E; ETAP 2) - Wyświetlenie zdjęcia głównego &#x1F34E;
+### ETAP 2) - Wyświetlenie zdjęcia głównego 
 
 #### JS
 
@@ -108,7 +108,7 @@ miniaturkami)
 * Jak pobrać element DOM ? (getElementById),
 * Jak dostać się do właściwości obiektu (po kropeczce).
 
-### &#x1F34E; ETAP 3) - Obsługa kliknięcia przycisków next/prev &#x1F34E;
+### ETAP 3) - Obsługa kliknięcia przycisków next/prev
 
 ##### Funkcja `setupClickListeners`
 
@@ -122,6 +122,6 @@ miniaturkami)
 UWAGA: Na tym etapie, pomijamy wywołanie funkcji `this.addPhotosListener();`,
 oraz `this.setActivePhotoBorder()`.
 
-### &#x1F34E; ETAP 4) - ZADANIE DODATKOWE - Obsługa kliknięcia miniatury &#x1F34E;
+### ETAP 4) - ZADANIE DODATKOWE - Obsługa kliknięcia miniatury
 
-### &#x1F34E; ETAP 5) - ZADANIE DODATKOWE - Dodanie kolorowej ramki na miniaturce, reprezentującej aktywne zdjęcie &#x1F34E;
+### ETAP 5) - ZADANIE DODATKOWE - Dodanie kolorowej ramki na miniaturce, reprezentującej aktywne zdjęcie
